@@ -2,7 +2,7 @@ package codebase.pli.plitra.DatatypeClasses;
 
 import java.math.BigDecimal;
 
-public class DECIMAL {
+public class DECIMAL extends Number{
 	BigDecimal content;
 
 	public DECIMAL() {
@@ -35,5 +35,30 @@ public class DECIMAL {
 
 	private double toNumeric() {
 		return this.content.doubleValue();
+	}
+	
+
+	@Override
+	public int intValue() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long longValue() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float floatValue() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double doubleValue() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
