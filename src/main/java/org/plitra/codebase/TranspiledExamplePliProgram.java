@@ -2,7 +2,6 @@ package org.plitra.codebase;
 
 import java.util.List;
 
-
 import codebase.pli.plitra.CustomValidation.Decimal;
 import codebase.pli.plitra.CustomValidation.IProgram;
 import codebase.pli.plitra.CustomValidation.init;
@@ -12,16 +11,20 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class TranspiledExamplePliProgram implements IProgram{
-	
+public class TranspiledExamplePliProgram implements IProgram {
+
 //Wiedererkennungswert der Syntax && 
 //OOP als semantische Paradigma -> Ziel
+
+	public @Decimal(4) double var_1 = 2;
+	public @Decimal(4) double var_2 = 3;
 	
-	@Decimal(2)
-	public double var_1 = 22;
-	
-	@Decimal(1)
-	public double roc_1() {
-		return 2;
+	public void branchproc (){
+		while (var_1 < var_2) {
+			do {
+				System.out.println("smaller");
+			} while(!(var_1 == var_2));
+		}	
 	}
 }
+

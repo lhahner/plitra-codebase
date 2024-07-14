@@ -28,6 +28,7 @@ public class CodebaseApplication {
 		
 		MethodeValidation mv = new MethodeValidation(new TranspiledExamplePliProgram());
 		mv.validateDecimalMethode();
+		mv.validateDecimalMethode();
 		
 //		Validator  validator = factory.getValidator();
 //		
