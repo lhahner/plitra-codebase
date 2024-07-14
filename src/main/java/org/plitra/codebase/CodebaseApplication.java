@@ -21,14 +21,14 @@ import jakarta.validation.executable.ExecutableValidator;
 
 public class CodebaseApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		ClassValidation cv = new ClassValidation(new TranspiledExamplePliProgram());
 		cv.validateProgramClass();
 		
 		MethodeValidation mv = new MethodeValidation(new TranspiledExamplePliProgram());
 		mv.validateDecimalMethode();
-		mv.validateDecimalMethode();
+		mv.validateCharMethode();
 		
 //		Validator  validator = factory.getValidator();
 //		

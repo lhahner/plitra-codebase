@@ -27,7 +27,7 @@ public class MethodeValidation {
 			Method[] methode = this.program.getClass().getMethods();
 			Set<ConstraintViolation<IProgram>> violations;
 
-			Object value = methode[0].invoke(this.program, null);
+			Object value = methode[0].invoke(this.program, 0);
 			violations = executableValidator.validateReturnValue(this.program, methode[0], (double) value);
 
 			if (violations.size() == 1) {
@@ -52,7 +52,9 @@ public class MethodeValidation {
 			Method[] methode = this.program.getClass().getMethods();
 			Set<ConstraintViolation<IProgram>> violations;
 
-			Object value = methode[0].invoke(this.program, null);
+			if(methode[0].isAnnotationPresent(Char.class)) {
+			
+			Object value = methode[0].invoke(this.program, 0);
 			violations = executableValidator.validateReturnValue(this.program, methode[0], (String) value);
 
 			if (violations.size() == 1) {
@@ -62,6 +64,11 @@ public class MethodeValidation {
 					throw new NumberFormatException("Validation Constraint violated, program not valid to use.");
 				}
 				
+			}
+			
+			}
+			else {
+				return;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

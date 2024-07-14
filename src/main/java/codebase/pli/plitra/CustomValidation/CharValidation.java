@@ -3,7 +3,7 @@ package codebase.pli.plitra.CustomValidation;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class CharValidation implements ConstraintValidator<Char, Object> {
+public class CharValidation implements ConstraintValidator<Char, Object>, IProgram {
 	
 	 private int length;
 	 @Override

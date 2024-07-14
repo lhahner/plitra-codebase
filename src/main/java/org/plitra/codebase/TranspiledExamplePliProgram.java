@@ -2,6 +2,7 @@ package org.plitra.codebase;
 
 import java.util.List;
 
+import codebase.pli.plitra.CustomValidation.Char;
 import codebase.pli.plitra.CustomValidation.Decimal;
 import codebase.pli.plitra.CustomValidation.IProgram;
 import codebase.pli.plitra.CustomValidation.init;
@@ -13,18 +14,39 @@ import jakarta.validation.constraints.Size;
 
 public class TranspiledExamplePliProgram implements IProgram {
 
-//Wiedererkennungswert der Syntax && 
-//OOP als semantische Paradigma -> Ziel
+	public @Decimal(5) double Z;
+	public @Char(5) String MESSAGE;
 
-	public @Decimal(4) double var_1 = 2;
-	public @Decimal(4) double var_2 = 3;
-	
-	public void branchproc (){
-		while (var_1 < var_2) {
-			do {
-				System.out.println("smaller");
-			} while(!(var_1 == var_2));
-		}	
+	@Decimal(5)
+	public double PROCBA(double M) {
+		if (M < 2) {
+			return 1;
+		}
+		if (M % 2 == 0) {
+			if (M == 2) {
+				return 0;
+			} else {
+				return 1;
+			}
+		}
+		if (M % 3 == 0) {
+			if (M == 3) {
+				return 0;
+			} else {
+				return 1;
+			}
+		}
+		Z = 5;
+		while (Z * Z <= M) {
+			if (M % Z == 0) {
+				return 1;
+			}
+			Z = Z + 2;
+			if (M % Z == 0) {
+				return 1;
+			}
+			Z = Z + 4;
+		}
+		return M;
 	}
 }
-

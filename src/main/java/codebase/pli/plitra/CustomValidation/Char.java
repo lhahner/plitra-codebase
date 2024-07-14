@@ -12,7 +12,7 @@ import jakarta.validation.Payload;
 
 @Target({FIELD, METHOD})
 @Retention(RUNTIME)
-@Constraint(validatedBy = DecimalValidation.class)
+@Constraint(validatedBy = CharValidation.class)
 public @interface Char {
 	String message() default "Size exceeded";
 	int value();

@@ -5,7 +5,7 @@ import org.plitra.codebase.TranspiledExamplePliProgram;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class DecimalValidation implements ConstraintValidator<Decimal, Object> {
+public class DecimalValidation implements ConstraintValidator<Decimal, Object>, IProgram {
 	
 	 private int length;
 	 @Override
