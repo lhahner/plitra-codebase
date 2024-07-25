@@ -1,6 +1,9 @@
 package org.plitra.codebase;
 
+import java.math.BigDecimal;
 import java.util.List;
+
+import org.openjdk.jmh.annotations.Benchmark;
 
 import codebase.pli.plitra.CustomValidation.Char;
 import codebase.pli.plitra.CustomValidation.Decimal;
@@ -14,39 +17,41 @@ import jakarta.validation.constraints.Size;
 
 public class TranspiledExamplePliProgram implements IProgram {
 
-	public @Decimal(5) double Z;
-	public @Char(5) String MESSAGE;
+	public BigDecimal Z;
+	public String MESSAGE;
 
-	@Decimal(5)
-	public double PROCBA(double M) {
-		if (M < 2) {
+	public double PROCBA(BigDecimal M) {
+		if (M.compareTo(BigDecimal.valueOf(2)) < 0) {
 			return 1;
 		}
-		if (M % 2 == 0) {
-			if (M == 2) {
+		//M % 2 == 0
+		if (M.remainder(BigDecimal.valueOf(2)) == BigDecimal.valueOf(0)) {
+			if (M == BigDecimal.valueOf(2)) {
 				return 0;
 			} else {
 				return 1;
 			}
 		}
-		if (M % 3 == 0) {
-			if (M == 3) {
+		if (M.remainder(BigDecimal.valueOf(3)) == BigDecimal.valueOf(0)) {
+			if (M == BigDecimal.valueOf(3)) {
 				return 0;
 			} else {
 				return 1;
 			}
 		}
-		Z = 5;
-		while (Z * Z <= M) {
-			if (M % Z == 0) {
+		Z = Z.valueOf(5);
+		while (Z.multiply(Z).compareTo(M) <= 0 ) {
+			System.out.println(Z.toString());
+			if (M.remainder(Z) == BigDecimal.valueOf(0)) {
 				return 1;
 			}
-			Z = Z + 2;
-			if (M % Z == 0) {
+			Z = Z.add(BigDecimal.valueOf(2));
+			if (M.remainder(Z) == BigDecimal.valueOf(0)) {
 				return 1;
 			}
-			Z = Z + 4;
+			Z = Z.add(BigDecimal.valueOf(4));
+			
 		}
-		return M;
+		return M.doubleValue();
 	}
 }
